@@ -8,7 +8,7 @@ export default function EditorialCrescendoSection() {
   return (
     <section className="relative w-full min-h-[70vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAF3EC] select-none my-12 sm:my-20">
       
-      {/* Expansive Photographic Background */}
+      {/* Expansive Photographic Background (Ultra-Sharp HD & Radiant Lighting) */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/wedding_opt/H2H08248.jpg"
@@ -16,11 +16,11 @@ export default function EditorialCrescendoSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center filter contrast-[1.03] brightness-[0.95]"
+          className="object-cover object-center filter contrast-[1.05] brightness-[1.03] saturate-[1.04]"
         />
 
-        {/* Soft Romantic Veil Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/50 pointer-events-none" />
+        {/* Delicate Cinematic Lighting & Edge Vignette (Không làm tối mặt) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/35 pointer-events-none" />
       </div>
 
       {/* Outer Fine Gold Line Art Frame */}
