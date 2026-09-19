@@ -12,7 +12,6 @@ import EditorialCrescendoSection from '@/components/EditorialCrescendoSection';
 import EventsSection from '@/components/EventsSection';
 import WeddingTimelineSection from '@/components/WeddingTimelineSection';
 import DressCodeSection from '@/components/DressCodeSection';
-import VowsSection from '@/components/VowsSection';
 import GiftSection from '@/components/GiftSection';
 import WishesSection from '@/components/WishesSection';
 import RsvpSection from '@/components/RsvpSection';
@@ -61,9 +60,6 @@ export default function WeddingPage() {
 
       {/* 9. QUY CHUẨN TRANG PHỤC: Bảng màu tươi sáng gợi ý */}
       <DressCodeSection />
-
-      {/* 10. LỜI HẸN TRĂM NĂM: Lời thề ước cô dâu chú rể */}
-      <VowsSection />
 
       {/* 11. HỘP MỪNG CƯỚI & VIETQR */}
       <GiftSection />
