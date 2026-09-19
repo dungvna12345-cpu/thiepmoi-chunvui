@@ -76,66 +76,69 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
         className="relative max-w-sm sm:max-w-md w-full flex flex-col items-center text-center z-20"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* 1. TOP CURSIVE CALLIGRAPHY: "Ngày Chung Đôi" / "We got married" */}
+        {/* 1. TOP CURSIVE CALLIGRAPHY: "Ngày Chung Đôi" / "Thư Mời Cưới" */}
         <div className="mb-3 sm:mb-4 animate-fade-in drop-shadow-md">
-          <p className="font-script text-4xl sm:text-5xl text-[#D8E6DC] drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] tracking-wide">
-            Ngày Chung Đôi
+          <p className="font-script text-5xl sm:text-6xl text-[#FFE8A3] drop-shadow-[0_3px_12px_rgba(0,0,0,0.6)] tracking-wide">
+            Thư Mời Cưới
           </p>
-          <div className="flex items-center justify-center gap-2.5 mt-1 text-[11px] font-serif uppercase tracking-[0.25em] text-white/90">
-            <span className="w-6 h-[1px] bg-[#A2C2AC]/70" />
+          <div className="flex items-center justify-center gap-2.5 mt-1 text-[11px] font-serif uppercase tracking-[0.25em] text-[#FFE8A3]/90">
+            <span className="w-6 h-[1px] bg-[#FFE8A3]/70" />
             <span>{WEDDING_DATA.groom.name} &bull; {WEDDING_DATA.bride.name}</span>
-            <span className="w-6 h-[1px] bg-[#A2C2AC]/70" />
+            <span className="w-6 h-[1px] bg-[#FFE8A3]/70" />
           </div>
         </div>
 
-        {/* 2. THE ENVELOPE STAGE WITH POLAROID PHOTO & FLOWERS */}
+        {/* 2. THE RED ROYAL LACE ENVELOPE STAGE WITH POLAROID PHOTO & RED ROSES */}
         <div
           onClick={handleOpenEnvelope}
           className="relative w-[300px] sm:w-[350px] h-[340px] sm:h-[380px] cursor-pointer group my-1 select-none"
         >
-          {/* A. CÀNH HOA CÚC TRẮNG GÓC TRÊN BÊN TRÁI (TOP-LEFT DAISY BRANCH) */}
-          <div className="absolute -top-6 -left-8 sm:-left-10 w-28 sm:w-36 h-36 sm:h-44 pointer-events-none z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-3 drop-shadow-md">
+          {/* A. CÀNH HOA HỒNG ĐỎ NHUNG GÓC TRÊN BÊN TRÁI (TOP-LEFT RED ROSE SPRIG) */}
+          <div className="absolute -top-7 -left-8 sm:-left-10 w-32 sm:w-40 h-40 sm:h-48 pointer-events-none z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-3 drop-shadow-xl">
             <Image
-              src="/images/decor/daisy_branch_decor.webp"
-              alt="White Daisy Flowers"
+              src="/images/decor/red_rose_branch_decor.webp"
+              alt="Red Rose Flowers"
               fill
-              sizes="160px"
+              sizes="180px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* B. BÓ HOA CƯỚI GÓC DƯỚI BÊN PHẢI (BOTTOM-RIGHT FLOWER BOUQUET) */}
-          <div className="absolute -bottom-5 -right-6 sm:-right-8 w-28 sm:w-34 h-32 sm:h-40 pointer-events-none z-40 transition-transform duration-500 group-hover:scale-105 drop-shadow-lg">
+          {/* B. BÓ HOA CƯỚI HOA HỒNG ĐỎ BUỘC NƠ VÀNG GÓC DƯỚI BÊN PHẢI (BOTTOM-RIGHT RED BOUQUET) */}
+          <div className="absolute -bottom-6 -right-6 sm:-right-8 w-32 sm:w-40 h-36 sm:h-44 pointer-events-none z-40 transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl">
             <Image
-              src="/images/decor/flower_bouquet_decor.webp"
-              alt="Wedding Bouquet"
+              src="/images/decor/red_rose_bouquet_decor.webp"
+              alt="Red Wedding Bouquet"
               fill
-              sizes="150px"
+              sizes="180px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* C. ENVELOPE BACK FLAP (NẮP PHONG BÌ MỞ NGƯỢC LÊN TRÊN - SAGE GREEN) */}
+          {/* C. ENVELOPE BACK FLAP (NẮP PHONG BÌ ĐỎ MỞ NGƯỢC LÊN TRÊN VỚI VIỀN REN VÀNG) */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 bottom-[140px] sm:bottom-[160px] w-[260px] sm:w-[300px] h-[95px] sm:h-[110px] bg-[#283C2F] border-t border-l border-r border-[#3D5644] rounded-t-xl z-0 pointer-events-none"
+            className="absolute left-1/2 -translate-x-1/2 bottom-[140px] sm:bottom-[160px] w-[260px] sm:w-[300px] h-[95px] sm:h-[110px] bg-[#7A0E1F] border-t-2 border-l border-r border-[#C59B55]/70 rounded-t-xl z-0 pointer-events-none overflow-hidden"
             style={{
               clipPath: 'polygon(0% 100%, 50% 0%, 100% 100%)',
-              boxShadow: 'inset 0 4px 12px rgba(0,0,0,0.3)',
+              boxShadow: 'inset 0 4px 15px rgba(0,0,0,0.4)',
             }}
-          />
+          >
+            {/* Lớp hoa văn ren mờ bên trong nắp phong bì */}
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FFE8A3_1.5px,transparent_1.5px)] [background-size:10px_10px]" />
+          </div>
 
           {/* D. SINGLE POLAROID PHOTO (1 ẢNH CÔ DÂU CHÚ RỂ NHÔ CAO RA KHỎI PHONG BÌ) */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 top-4 w-[215px] sm:w-[245px] bg-white p-2.5 sm:p-3 rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.35)] border border-stone-200 transition-all duration-700 ease-out z-15 ${
+            className={`absolute left-1/2 -translate-x-1/2 top-4 w-[215px] sm:w-[245px] bg-white p-2.5 sm:p-3 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.45)] border-2 border-[#FFE8A3]/80 transition-all duration-700 ease-out z-15 ${
               isOpening
                 ? '-translate-y-16 scale-105 shadow-2xl'
                 : '-rotate-2 group-hover:-translate-y-3 group-hover:rotate-0'
             }`}
           >
             {/* Inner Photo Container */}
-            <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-stone-100 border border-stone-200 shadow-inner">
+            <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-stone-100 border border-[#C59B55]/30 shadow-inner">
               <Image
                 src="/images/wedding_opt/H2H09645.jpg"
                 alt="Đỗ Thành Nhớ & Phạm Thị Ngân"
@@ -148,56 +151,66 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
 
             {/* Bottom Polaroid Caption Bar */}
             <div className="pt-2 text-center">
-              <p className="font-script text-lg text-[#2C4334] font-semibold leading-none">
+              <p className="font-script text-xl text-[#A81B32] font-semibold leading-none">
                 Thành Nhớ &amp; Ngọc Ngân
               </p>
             </div>
           </div>
 
-          {/* E. CUỐNG VÉ HẸN ƯỚC (SAVE THE DATE TICKET PEEKING IN FRONT OF PHOTO) */}
+          {/* E. CUỐNG VÉ HẸN ƯỚC (TICKET PEEKING IN FRONT OF PHOTO CÓ VIỀN REN VÀNG) */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 bottom-[115px] sm:bottom-[130px] w-[190px] sm:w-[215px] bg-[#FFFDF9] border border-[#C59B55]/50 rounded-lg py-2 px-3 shadow-md z-20 transition-all duration-500 ${
+            className={`absolute left-1/2 -translate-x-1/2 bottom-[115px] sm:bottom-[130px] w-[190px] sm:w-[215px] bg-[#FFFDF9] border-2 border-[#C59B55]/70 rounded-lg py-2 px-3 shadow-lg z-20 transition-all duration-500 ring-1 ring-[#C59B55]/30 ${
               isOpening ? 'translate-y-2 opacity-80' : 'rotate-1 group-hover:rotate-0'
             }`}
           >
             <div className="text-center font-serif">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#C59B55] font-bold">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#C92A42] font-bold">
                 Ngày Chung Đôi
               </p>
-              <p className="text-base sm:text-lg font-heading text-[#2C4334] font-bold tracking-wider leading-tight">
+              <p className="text-base sm:text-lg font-heading text-[#8A1326] font-bold tracking-wider leading-tight">
                 29 . 09 . 2026
               </p>
-              <p className="text-[9px] text-[#736266] italic">
+              <p className="text-[9px] text-[#736266] italic font-medium">
                 Lễ Thành Hôn
               </p>
             </div>
           </div>
 
-          {/* F. ENVELOPE FRONT BODY (THÂN PHONG BÌ PHÍA TRƯỚC HÌNH CHỮ V - SAGE GREEN) */}
+          {/* F. ENVELOPE FRONT BODY (THÂN PHONG BÌ ĐỎ NHUNG HÌNH CHỮ V CÓ VIỀN REN CHỈ VÀNG) */}
           <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[270px] sm:w-[310px] h-[155px] sm:h-[175px] bg-[#334A3A] rounded-b-2xl shadow-[0_20px_45px_rgba(0,0,0,0.45)] border-b border-l border-r border-[#4A6854] z-25 pointer-events-none"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[270px] sm:w-[310px] h-[155px] sm:h-[175px] bg-gradient-to-b from-[#A81B32] via-[#911426] to-[#700B1A] rounded-b-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-b-2 border-l-2 border-r-2 border-[#C59B55]/70 z-25 pointer-events-none overflow-hidden"
             style={{
               clipPath: 'polygon(0% 0%, 50% 42%, 100% 0%, 100% 100%, 0% 100%)',
             }}
           >
-            {/* Pocket Shadow & 3D Lighting Accents */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-b-2xl" />
+            {/* Lớp ren hoa văn chìm (Lace Pattern Overlay) */}
+            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#FFE8A3_1px,transparent_1px)] [background-size:8px_8px]" />
+
+            {/* Dải ren thêu chỉ vàng trang nhã viền theo mép chữ V */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%)',
+                background: 'linear-gradient(to bottom, rgba(255,232,163,0.3) 0%, transparent 40%)',
+              }}
+            />
+
+            {/* Ánh sáng 3D góc nổi bật */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 45%)',
               }}
             />
           </div>
 
-          {/* G. WAX SEAL MONOGRAM TRÊN ĐỈNH CHỮ V PHONG BÌ */}
+          {/* G. WAX SEAL VÀNG HOÀNG GIA TRÊN ĐỈNH CHỮ V PHONG BÌ */}
           <div
             className={`absolute bottom-[80px] sm:bottom-[92px] left-1/2 -translate-x-1/2 z-30 transition-all duration-300 ${
               isOpening ? 'opacity-0 scale-125' : 'opacity-100 scale-100'
             }`}
           >
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#4A6451] via-[#354D3C] to-[#203125] text-[#D8E6DC] flex items-center justify-center shadow-[0_6px_20px_rgba(0,0,0,0.5)] border-2 border-[#A2C2AC] ring-2 ring-[#283C2F]/80 group-hover:scale-110 transition-transform">
-              <Heart className="w-5 h-5 fill-[#D8E6DC]/90 text-[#D8E6DC]/90 drop-shadow-xs" />
+            <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#D4AF37] to-[#8C6225] text-[#8A1326] flex items-center justify-center shadow-[0_8px_25px_rgba(140,98,37,0.6)] border-2 border-[#FFFDF9] ring-2 ring-[#D4AF37]/90 group-hover:scale-110 transition-transform">
+              <Heart className="w-5 h-5 sm:w-6 sm:h-6 fill-[#8A1326] text-[#8A1326] drop-shadow-xs" />
             </div>
           </div>
 
@@ -205,7 +218,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
 
         {/* 3. INVITATION FOOTER & GUEST PILL BUTTON */}
         <div className="mt-4 sm:mt-5 space-y-2.5">
-          <p className="font-serif text-[11px] uppercase tracking-[0.25em] text-[#D8E6DC] font-semibold drop-shadow-sm">
+          <p className="font-serif text-[11px] uppercase tracking-[0.25em] text-[#FFE8A3] font-semibold drop-shadow-sm">
             TRÂN TRỌNG KÍNH MỜI
           </p>
 
@@ -213,13 +226,13 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           <button
             type="button"
             onClick={handleOpenEnvelope}
-            className="inline-flex items-center gap-2.5 px-8 py-2.5 bg-gradient-to-r from-[#FFFDF9] via-white to-[#FAF5EE] text-[#2C4334] hover:text-white hover:from-[#2C4334] hover:to-[#1E2E24] border border-[#A2C2AC]/80 rounded-full text-xs font-serif uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-9 py-2.5 bg-gradient-to-r from-[#FFFDF9] via-white to-[#FAF5EE] text-[#C92A42] hover:text-white hover:from-[#C92A42] hover:to-[#8A1326] border-2 border-[#D4AF37] rounded-full text-xs font-serif uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-[0_10px_30px_rgba(201,42,66,0.35)] hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-[#D4AF37] animate-pulse" />
             <span>Mở Thiệp Cưới</span>
           </button>
 
-          <p className="text-[11px] text-white/75 font-serif tracking-wider italic font-light drop-shadow-xs">
+          <p className="text-[11px] text-white/80 font-serif tracking-wider italic font-light drop-shadow-xs">
             Chạm vào phong bì hoặc nhấn mở thiệp để bắt đầu
           </p>
         </div>
