@@ -72,7 +72,7 @@ export default function WeddingCalendarSection() {
           <div className="text-center mb-10 sm:mb-12 text-[#2C2224]">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#C59B55]/40 rounded-full text-[#C92A42] text-[11px] uppercase tracking-[0.25em] font-serif font-semibold mb-3 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Save Our Date</span>
+              <span>Lời Hẹn Ước</span>
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#2C2224] tracking-wide font-normal">
@@ -102,17 +102,17 @@ export default function WeddingCalendarSection() {
 
             {/* 1. KHUNG TRANH NGHỆ THUẬT (ARTISTIC GOLD BEVEL PHOTO FRAME) */}
             <div className="relative mb-9 z-20">
-              <div className="p-2 sm:p-3 bg-gradient-to-b from-[#FFFDF9] to-[#FAF5EE] border-2 border-[#C59B55]/60 rounded-2xl shadow-md">
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 border border-[#C59B55]/40">
+              <div className="p-2 sm:p-3 bg-gradient-to-b from-[#FFFDF9] to-[#FAF5EE] border-2 border-[#C59B55]/60 rounded-2xl shadow-md max-w-lg mx-auto">
+                <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-xl bg-stone-100 border border-[#C59B55]/40">
                   <Image
-                    src="/images/wedding_opt/H2H08876.jpg"
+                    src="/images/wedding_opt/H2H08970.jpg"
                     alt="Đỗ Thành Nhớ & Phạm Thị Ngân"
                     fill
                     sizes="(max-width: 640px) 100vw, 700px"
-                    className="object-cover object-bottom filter brightness-[1.01] contrast-[1.02]"
+                    className="object-cover object-center filter brightness-[1.01] contrast-[1.02]"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
 
