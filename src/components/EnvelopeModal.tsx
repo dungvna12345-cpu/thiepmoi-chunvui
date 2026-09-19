@@ -106,76 +106,84 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           </div>
         </div>
 
-        {/* 2. REALISTIC 3D POCKET ENVELOPE */}
+        {/* 2. REALISTIC 3D LUXURY SEALED ENVELOPE */}
         <div
           onClick={handleOpenEnvelope}
-          className="relative w-[300px] sm:w-[360px] h-[220px] sm:h-[250px] cursor-pointer group my-2"
+          className="relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] cursor-pointer group my-3"
           style={{ perspective: '1200px' }}
         >
-          {/* ENVELOPE BACKDROP CONTAINER */}
-          <div className="relative w-full h-full bg-[#E8DDD0] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-[#D5C6B5] overflow-visible">
+          {/* ENVELOPE BASE CONTAINER */}
+          <div className="relative w-full h-full bg-[#EDE3D6] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-[#C59B55]/50 overflow-visible">
             
-            {/* INNER LINER PAPER */}
-            <div className="absolute inset-0 bg-[#FAF4EC] rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B55_1px,transparent_1px)] [background-size:12px_12px]" />
+            {/* INNER LINER PAPER (Warm Ivory & Subtle Pattern) */}
+            <div className="absolute inset-0 bg-[#FAF5EE] rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C59B55_1.5px,transparent_1.5px)] [background-size:14px_14px]" />
             </div>
 
             {/* ============================================================= */}
-            {/* INNER PHOTO CARD - HIỂN THỊ RÕ MẶT CÔ DÂU CHÚ RỂ               */}
+            {/* INNER PHOTO CARD - TUCKED INSIDE, SLIDES UP WHEN OPENED      */}
             {/* ============================================================= */}
             <div
-              className={`absolute inset-x-4 top-4 h-[210px] sm:h-[240px] bg-white rounded-xl shadow-lg border-2 border-[#EFE6D8] p-2 flex flex-col items-center transition-all duration-1000 ease-out z-10 ${
+              className={`absolute inset-x-5 top-3 h-[200px] sm:h-[230px] bg-white rounded-xl shadow-xl border-2 border-[#C59B55]/40 p-2 flex flex-col items-center transition-all duration-1000 ease-out z-10 ${
                 isOpening
-                  ? '-translate-y-28 sm:-translate-y-36 scale-105 shadow-2xl z-40'
-                  : '-translate-y-8 sm:-translate-y-10 group-hover:-translate-y-14'
+                  ? '-translate-y-36 sm:-translate-y-44 scale-105 opacity-100 shadow-2xl z-40'
+                  : 'translate-y-2 opacity-0 pointer-events-none scale-95'
               }`}
             >
-              {/* Photo inside the invitation card (Vertical Portrait photo where faces are clearly in view) */}
-              <div className="relative w-full h-full rounded-lg overflow-hidden bg-stone-100 border border-[#C59B55]/30 shadow-inner">
+              {/* Photo inside the invitation card */}
+              <div className="relative w-full h-full rounded-lg overflow-hidden bg-stone-100 border border-[#C59B55]/40 shadow-inner">
                 <Image
                   src="/images/wedding_opt/H2H09645.jpg"
                   alt="Thành Nhớ & Ngọc Ngân"
                   fill
-                  sizes="340px"
+                  sizes="350px"
                   className="object-cover object-top filter brightness-[1.01] contrast-[1.02]"
                   priority
                 />
+                <div className="absolute inset-x-0 bottom-0 py-1.5 bg-gradient-to-t from-black/70 via-black/30 to-transparent text-center text-white">
+                  <p className="text-[10px] font-serif uppercase tracking-[0.2em] text-[#FFE8A3] font-semibold">
+                    Lễ Thành Hôn &bull; 29.09.2026
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* ============================================================= */}
-            {/* ENVELOPE FRONT POCKET FOLD (MẶT TRƯỚC PHONG BÌ)               */}
+            {/* ENVELOPE FRONT POCKET FOLD (THÂN PHONG BÌ PHÍA TRƯỚC)         */}
             {/* ============================================================= */}
             <div
               className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(to bottom, transparent 38%, #ECE0D2 39%, #E0D0BE 100%)',
-                clipPath: 'polygon(0% 38%, 50% 72%, 100% 38%, 100% 100%, 0% 100%)',
-                boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.6)',
+                background: 'linear-gradient(to bottom, transparent 35%, #EDE3D6 36%, #E0D2C0 100%)',
+                clipPath: 'polygon(0% 35%, 50% 68%, 100% 35%, 100% 100%, 0% 100%)',
+                boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.7)',
               }}
             />
 
-            {/* Left & Right Fold Subtle Shadows */}
+            {/* Left & Right Fold Decorative Shadow Layers */}
             <div
               className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(135deg, rgba(190,170,150,0.4) 0%, transparent 60%)',
-                clipPath: 'polygon(0 38%, 50% 72%, 0 100%)',
+                background: 'linear-gradient(135deg, rgba(180,155,130,0.35) 0%, transparent 55%)',
+                clipPath: 'polygon(0 35%, 50% 68%, 0 100%)',
               }}
             />
             <div
               className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(-135deg, rgba(190,170,150,0.4) 0%, transparent 60%)',
-                clipPath: 'polygon(100% 38%, 50% 72%, 100% 100%)',
+                background: 'linear-gradient(-135deg, rgba(180,155,130,0.35) 0%, transparent 55%)',
+                clipPath: 'polygon(100% 35%, 50% 68%, 100% 100%)',
               }}
             />
 
+            {/* Viền chỉ vàng sang trọng quanh nắp phong bì */}
+            <div className="absolute inset-1 border border-[#C59B55]/30 rounded-xl pointer-events-none z-20" />
+
             {/* ============================================================= */}
-            {/* TOP TRIANGLE FLAP (NẮP PHONG BÌ MỞ 3D)                         */}
+            {/* TOP TRIANGLE FLAP (NẮP PHONG BÌ ĐÓNG KÍN 3D)                  */}
             {/* ============================================================= */}
             <div
-              className={`absolute inset-x-0 top-0 h-[105px] sm:h-[120px] origin-top transition-transform duration-700 ease-in-out z-30 pointer-events-none ${
+              className={`absolute inset-x-0 top-0 h-[125px] sm:h-[142px] origin-top transition-transform duration-700 ease-in-out z-30 pointer-events-none ${
                 isOpening ? '[transform:rotateX(-180deg)]' : '[transform:rotateX(0deg)]'
               }`}
               style={{
@@ -183,24 +191,33 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
               }}
             >
               <div
-                className="absolute inset-0 bg-[#E8DDD0] border-t border-[#D5C6B5]"
+                className="absolute inset-0 bg-[#EDE3D6] border-t border-[#D5C6B5]"
                 style={{
                   clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                  boxShadow: '0 6px 18px rgba(0,0,0,0.2)',
+                  background: 'linear-gradient(180deg, #F4ECE1 0%, #EDE3D6 60%, #E2D3BE 100%)',
+                }}
+              />
+              {/* Flap Gold Hairline Border */}
+              <div
+                className="absolute inset-x-2 top-0 h-full pointer-events-none opacity-40"
+                style={{
+                  clipPath: 'polygon(0 0, 100% 0, 50% 98%)',
+                  borderTop: '1px solid #C59B55',
                 }}
               />
             </div>
 
             {/* ============================================================= */}
-            {/* BRONZE / GOLD WAX SEAL (CON DẤU SÁP CHÍNH GIỮA)              */}
+            {/* BRONZE / GOLD WAX SEAL (CON DẤU SÁP HOÀNG GIA CHÍNH GIỮA)    */}
             {/* ============================================================= */}
             <div
-              className={`absolute top-[85px] sm:top-[98px] left-1/2 -translate-x-1/2 z-30 transition-all duration-500 ${
-                isOpening ? 'opacity-0 scale-125' : 'opacity-100 scale-100'
+              className={`absolute top-[105px] sm:top-[120px] left-1/2 -translate-x-1/2 z-35 transition-all duration-500 ${
+                isOpening ? 'opacity-0 scale-150' : 'opacity-100 scale-100'
               }`}
             >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#E2B96A] via-[#C59B55] to-[#8C6225] text-white flex items-center justify-center shadow-[0_6px_20px_rgba(140,98,37,0.5)] border-2 border-[#FFE8A3] ring-2 ring-[#C59B55]/60 group-hover:scale-110 transition-transform">
-                <Heart className="w-5 h-5 fill-white/90 text-white/90 drop-shadow-xs" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#E8C278] via-[#C59B55] to-[#8C6225] text-white flex flex-col items-center justify-center shadow-[0_8px_25px_rgba(140,98,37,0.55)] border-2 border-[#FFE8A3] ring-2 ring-[#C59B55]/70 group-hover:scale-110 transition-transform">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6 fill-white/95 text-white/95 drop-shadow-xs" />
               </div>
             </div>
 
