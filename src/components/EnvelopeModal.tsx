@@ -32,7 +32,6 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
     try {
       sessionStorage.setItem('wedding_envelope_opened', 'true');
       
-      // Multi-stage celebratory confetti
       confetti({
         particleCount: 50,
         spread: 80,
@@ -50,13 +49,11 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
       }, 300);
     } catch {}
 
-    // Trigger music & background audio
     onOpen();
 
-    // Allow full 3D envelope opening animation to complete before removing modal
     setTimeout(() => {
       setIsRemoved(true);
-    }, 1400);
+    }, 1300);
   };
 
   if (isRemoved) return null;
@@ -67,27 +64,27 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
       className={`fixed inset-0 z-50 flex items-center justify-center p-4 select-none transition-all duration-700 backdrop-blur-md cursor-pointer ${
         isOpening
           ? 'opacity-0 pointer-events-none scale-105'
-          : 'opacity-100 bg-black/40'
+          : 'opacity-100 bg-black/55'
       }`}
       aria-label="Nhấn để mở thiệp cưới"
     >
-      {/* Background Decor: Corner Realistic Botanical Branches */}
-      <div className="absolute top-0 left-0 w-36 sm:w-48 aspect-square pointer-events-none z-10 opacity-90 -translate-x-4 -translate-y-4">
+      {/* Background Decor: Realistic Botanical Branches in corners */}
+      <div className="absolute top-0 left-0 w-36 sm:w-52 aspect-square pointer-events-none z-10 opacity-80 -translate-x-4 -translate-y-4">
         <Image
           src="/images/decor/floral_branch_clipping_left.webp"
-          alt="Botanical Accent Left"
+          alt="Botanical Accent"
           fill
-          sizes="192px"
+          sizes="200px"
           className="object-contain"
         />
       </div>
 
-      <div className="absolute bottom-0 right-0 w-36 sm:w-48 aspect-square pointer-events-none z-10 opacity-90 translate-x-4 translate-y-4 rotate-180">
+      <div className="absolute bottom-0 right-0 w-36 sm:w-52 aspect-square pointer-events-none z-10 opacity-80 translate-x-4 translate-y-4 rotate-180">
         <Image
           src="/images/decor/floral_branch_clipping_left.webp"
-          alt="Botanical Accent Right"
+          alt="Botanical Accent"
           fill
-          sizes="192px"
+          sizes="200px"
           className="object-contain"
         />
       </div>
@@ -98,63 +95,51 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* 1. TOP CURSIVE CALLIGRAPHY HEADER */}
-        <div className="mb-6 sm:mb-8 animate-fade-in">
-          <h1 className="font-script text-5xl sm:text-6xl text-[#2C2224] drop-shadow-sm tracking-wide">
-            Wedding Invitation
+        <div className="mb-4 sm:mb-6 animate-fade-in text-white drop-shadow-md">
+          <h1 className="font-script text-5xl sm:text-6xl text-[#FFE8A3] drop-shadow-md tracking-wide">
+            Thư Mời Cưới
           </h1>
-          <div className="flex items-center justify-center gap-3 mt-1">
-            <span className="w-10 h-[1px] bg-[#C59B55]/50" />
-            <span className="font-serif text-[11px] uppercase tracking-[0.3em] text-[#C92A42] font-semibold">
-              {WEDDING_DATA.groom.name} &bull; {WEDDING_DATA.bride.name}
-            </span>
-            <span className="w-10 h-[1px] bg-[#C59B55]/50" />
+          <div className="flex items-center justify-center gap-3 mt-1 text-xs font-serif uppercase tracking-[0.25em] text-white/90">
+            <span className="w-8 h-[1px] bg-[#FFE8A3]/60" />
+            <span>{WEDDING_DATA.groom.name} &bull; {WEDDING_DATA.bride.name}</span>
+            <span className="w-8 h-[1px] bg-[#FFE8A3]/60" />
           </div>
         </div>
 
-        {/* 2. REALISTIC 3D POCKET ENVELOPE (PHONG BÌ MỞ 3D) */}
+        {/* 2. REALISTIC 3D POCKET ENVELOPE */}
         <div
           onClick={handleOpenEnvelope}
-          className="relative w-[290px] sm:w-[340px] h-[220px] sm:h-[250px] cursor-pointer group my-2"
+          className="relative w-[300px] sm:w-[360px] h-[220px] sm:h-[250px] cursor-pointer group my-2"
           style={{ perspective: '1200px' }}
         >
-          {/* ENVELOPE BACKDROP & POCKET CONTAINER */}
-          <div className="relative w-full h-full bg-[#E5D7C5] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.35)] border border-[#D8C7B0] overflow-visible">
+          {/* ENVELOPE BACKDROP CONTAINER */}
+          <div className="relative w-full h-full bg-[#E8DDD0] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-[#D5C6B5] overflow-visible">
             
-            {/* INNER LINER (Họa tiết giấy lụa bên trong phong bì) */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF5EE] to-[#EFE2D2] rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C59B55_1px,transparent_1px)] [background-size:12px_12px]" />
+            {/* INNER LINER PAPER */}
+            <div className="absolute inset-0 bg-[#FAF4EC] rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B55_1px,transparent_1px)] [background-size:12px_12px]" />
             </div>
 
             {/* ============================================================= */}
-            {/* INNER PHOTO INVITATION CARD (THIỆP ẢNH LỒNG BÊN TRONG)        */}
+            {/* INNER PHOTO CARD - HIỂN THỊ RÕ MẶT CÔ DÂU CHÚ RỂ               */}
             {/* ============================================================= */}
             <div
-              className={`absolute inset-x-3.5 top-3.5 h-[200px] sm:h-[230px] bg-white rounded-xl shadow-md border border-[#EFE6D8] p-2 flex flex-col items-center transition-all duration-1000 ease-out z-10 ${
+              className={`absolute inset-x-4 top-4 h-[210px] sm:h-[240px] bg-white rounded-xl shadow-lg border-2 border-[#EFE6D8] p-2 flex flex-col items-center transition-all duration-1000 ease-out z-10 ${
                 isOpening
                   ? '-translate-y-28 sm:-translate-y-36 scale-105 shadow-2xl z-40'
-                  : '-translate-y-6 sm:-translate-y-8 group-hover:-translate-y-12'
+                  : '-translate-y-8 sm:-translate-y-10 group-hover:-translate-y-14'
               }`}
             >
-              {/* Photo inside the invitation card */}
-              <div className="relative w-full h-full rounded-lg overflow-hidden bg-stone-100 border border-[#C59B55]/40">
+              {/* Photo inside the invitation card (Vertical Portrait photo where faces are clearly in view) */}
+              <div className="relative w-full h-full rounded-lg overflow-hidden bg-stone-100 border border-[#C59B55]/30 shadow-inner">
                 <Image
-                  src="/images/wedding_opt/H2H08876.jpg"
+                  src="/images/wedding_opt/H2H09645.jpg"
                   alt="Thành Nhớ & Ngọc Ngân"
                   fill
-                  sizes="320px"
-                  className="object-cover object-bottom filter brightness-[1.01] contrast-[1.02]"
+                  sizes="340px"
+                  className="object-cover object-top filter brightness-[1.01] contrast-[1.02]"
                   priority
                 />
-                
-                {/* Subtle photo label */}
-                <div className="absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black/70 via-black/20 to-transparent text-white font-serif text-center">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#FFD782] block font-semibold">
-                    SAVE OUR DATE
-                  </span>
-                  <span className="text-xs font-heading font-light">
-                    {WEDDING_DATA.weddingDate.formattedDate}
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -162,27 +147,27 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             {/* ENVELOPE FRONT POCKET FOLD (MẶT TRƯỚC PHONG BÌ)               */}
             {/* ============================================================= */}
             <div
-              className="absolute inset-0 z-20 pointer-events-none"
+              className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(to bottom, transparent 35%, #EDE2D3 36%, #E2D2BE 100%)',
-                clipPath: 'polygon(0% 35%, 50% 70%, 100% 35%, 100% 100%, 0% 100%)',
+                background: 'linear-gradient(to bottom, transparent 38%, #ECE0D2 39%, #E0D0BE 100%)',
+                clipPath: 'polygon(0% 38%, 50% 72%, 100% 38%, 100% 100%, 0% 100%)',
                 boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.6)',
               }}
             />
 
-            {/* Left & Right Fold Shadows */}
+            {/* Left & Right Fold Subtle Shadows */}
             <div
-              className="absolute inset-0 z-20 pointer-events-none"
+              className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(135deg, rgba(200,180,160,0.4) 0%, transparent 60%)',
-                clipPath: 'polygon(0 35%, 50% 70%, 0 100%)',
+                background: 'linear-gradient(135deg, rgba(190,170,150,0.4) 0%, transparent 60%)',
+                clipPath: 'polygon(0 38%, 50% 72%, 0 100%)',
               }}
             />
             <div
-              className="absolute inset-0 z-20 pointer-events-none"
+              className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
               style={{
-                background: 'linear-gradient(-135deg, rgba(200,180,160,0.4) 0%, transparent 60%)',
-                clipPath: 'polygon(100% 35%, 50% 70%, 100% 100%)',
+                background: 'linear-gradient(-135deg, rgba(190,170,150,0.4) 0%, transparent 60%)',
+                clipPath: 'polygon(100% 38%, 50% 72%, 100% 100%)',
               }}
             />
 
@@ -190,16 +175,15 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             {/* TOP TRIANGLE FLAP (NẮP PHONG BÌ MỞ 3D)                         */}
             {/* ============================================================= */}
             <div
-              className={`absolute inset-x-0 top-0 h-[100px] sm:h-[115px] origin-top transition-transform duration-700 ease-in-out z-30 pointer-events-none ${
+              className={`absolute inset-x-0 top-0 h-[105px] sm:h-[120px] origin-top transition-transform duration-700 ease-in-out z-30 pointer-events-none ${
                 isOpening ? '[transform:rotateX(-180deg)]' : '[transform:rotateX(0deg)]'
               }`}
               style={{
                 transformStyle: 'preserve-3d',
               }}
             >
-              {/* Outer Flap Facing Up */}
               <div
-                className="absolute inset-0 bg-[#E8DDD0] border-t border-[#D8C7B0]"
+                className="absolute inset-0 bg-[#E8DDD0] border-t border-[#D5C6B5]"
                 style={{
                   clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
                   boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
@@ -211,7 +195,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             {/* BRONZE / GOLD WAX SEAL (CON DẤU SÁP CHÍNH GIỮA)              */}
             {/* ============================================================= */}
             <div
-              className={`absolute top-[80px] sm:top-[92px] left-1/2 -translate-x-1/2 z-30 transition-all duration-500 ${
+              className={`absolute top-[85px] sm:top-[98px] left-1/2 -translate-x-1/2 z-30 transition-all duration-500 ${
                 isOpening ? 'opacity-0 scale-125' : 'opacity-100 scale-100'
               }`}
             >
@@ -224,22 +208,22 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
         </div>
 
         {/* 3. INVITATION FOOTER & GUEST PILL BUTTON */}
-        <div className="mt-7 sm:mt-9 space-y-3">
-          <p className="font-serif text-xs uppercase tracking-[0.25em] text-[#736266] font-medium">
+        <div className="mt-6 sm:mt-8 space-y-3">
+          <p className="font-serif text-xs uppercase tracking-[0.25em] text-[#FFE8A3] font-semibold drop-shadow-sm">
             TRÂN TRỌNG KÍNH MỜI
           </p>
 
-          {/* Interactive Open Button with Soft Shimmer Glow */}
+          {/* Interactive Open Button */}
           <button
             type="button"
             onClick={handleOpenEnvelope}
-            className="inline-flex items-center gap-2.5 px-8 py-3 bg-gradient-to-r from-[#FFFDF9] via-white to-[#FFFDF9] text-[#C92A42] hover:text-white hover:from-[#C92A42] hover:to-[#A81B32] border border-[#C59B55]/60 hover:border-[#C92A42] rounded-full text-xs font-serif uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-[0_8px_25px_rgba(201,42,66,0.18)] hover:shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-9 py-3 bg-gradient-to-r from-[#FFFDF9] via-white to-[#FFFDF9] text-[#C92A42] hover:text-white hover:from-[#C92A42] hover:to-[#A81B32] border border-[#C59B55]/60 hover:border-[#C92A42] rounded-full text-xs font-serif uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-[#D4AF37] animate-pulse" />
             <span>Mở Thiệp Cưới</span>
           </button>
 
-          <p className="text-[11px] text-[#736266] font-serif tracking-wider italic font-light">
+          <p className="text-[11px] text-white/80 font-serif tracking-wider italic font-light drop-shadow-xs">
             Chạm vào phong bì hoặc nhấn mở thiệp để bắt đầu
           </p>
         </div>
