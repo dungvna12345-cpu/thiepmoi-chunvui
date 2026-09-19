@@ -11,7 +11,6 @@ import GallerySection from '@/components/GallerySection';
 import EditorialCrescendoSection from '@/components/EditorialCrescendoSection';
 import EventsSection from '@/components/EventsSection';
 import WeddingTimelineSection from '@/components/WeddingTimelineSection';
-import DressCodeSection from '@/components/DressCodeSection';
 import GiftSection from '@/components/GiftSection';
 import WishesSection from '@/components/WishesSection';
 import RsvpSection from '@/components/RsvpSection';
@@ -57,9 +56,6 @@ export default function WeddingPage() {
 
       {/* 8. LỊCH TRÌNH DẠ TIỆC: 5 Giai đoạn đón khách, nghi thức & khai tiệc */}
       <WeddingTimelineSection />
-
-      {/* 9. QUY CHUẨN TRANG PHỤC: Bảng màu tươi sáng gợi ý */}
-      <DressCodeSection />
 
       {/* 11. HỘP MỪNG CƯỚI & VIETQR */}
       <GiftSection />
