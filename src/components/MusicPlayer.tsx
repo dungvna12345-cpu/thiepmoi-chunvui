@@ -40,13 +40,13 @@ export default function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
         isPlaying ? 'bg-white text-[#8F1724] border border-[#D8B45F]/60' : 'bg-white/95 text-[#736266] border border-[#EFE6D8]'
       }`}>
         <Music className="w-3.5 h-3.5 mr-1.5 text-[#8F1724] animate-bounce" strokeWidth={1.6} />
-        <span className="font-medium">{isPlaying ? 'Yes I Do (Cưới Nhau Đi) ♫' : 'Bật nhạc đám cưới'}</span>
+        <span className="font-medium">{isPlaying ? 'Em Đồng Ý (I Do) • Đức Phúc ♫' : 'Bật nhạc đám cưới'}</span>
       </div>
 
       {/* Floating Vinyl Disc Button */}
       <button
         onClick={togglePlay}
-        aria-label={isPlaying ? 'Tắt nhạc Yes I Do' : 'Bật nhạc Yes I Do'}
+        aria-label={isPlaying ? 'Tắt nhạc Em Đồng Ý (I Do)' : 'Bật nhạc Em Đồng Ý (I Do)'}
         className={`relative w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center p-1 transition-transform duration-300 hover:scale-110 active:scale-95 shadow-[0_8px_25px_rgba(143,23,36,0.35)] cursor-pointer ${
           isPlaying ? 'ring-2 ring-[#D8B45F] ring-offset-2 ring-offset-[#351F1D]' : ''
         }`}
@@ -95,9 +95,8 @@ export default function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
         loop
         preload="auto"
       >
-        <source src="/audio/yes_i_do.webm" type="audio/webm" />
-        <source src="/audio/yes_i_do.m4a" type="audio/mp4" />
-        <source src="/audio/yes_i_do.mp3" type="audio/mpeg" />
+        <source src="/audio/em_dong_y_i_do.webm" type="audio/webm" />
+        <source src="/audio/em_dong_y_i_do.m4a" type="audio/mp4" />
       </audio>
     </div>
   );
