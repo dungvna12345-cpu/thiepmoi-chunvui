@@ -5,6 +5,7 @@ import EnvelopeModal from '@/components/EnvelopeModal';
 import PetalCanvas from '@/components/PetalCanvas';
 import MusicPlayer from '@/components/MusicPlayer';
 import AutoScroller from '@/components/AutoScroller';
+import LiveWishToasts from '@/components/LiveWishToasts';
 import HeroSection from '@/components/HeroSection';
 import WeddingCalendarSection from '@/components/WeddingCalendarSection';
 import GallerySection from '@/components/GallerySection';
@@ -35,6 +36,9 @@ export default function WeddingPage() {
 
       {/* Floating Vinyl Music Player */}
       <MusicPlayer autoPlayTrigger={hasStartedMusic} />
+
+      {/* Real-time Floating Wish Toast Notifications */}
+      <LiveWishToasts />
 
       {/* Cinematic Hands-free Auto Scroller */}
       <AutoScroller enabled={hasStartedMusic} />

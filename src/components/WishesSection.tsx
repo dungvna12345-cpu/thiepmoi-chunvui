@@ -57,6 +57,11 @@ export default function WishesSection() {
       setMessage('');
       setStatusMessage('Cảm ơn lời chúc ngọt ngào và tốt đẹp của bạn!');
 
+      // Dispatch live toast event
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('wedding_new_wish', { detail: savedWish }));
+      }
+
       try {
         confetti({
           particleCount: 35,
