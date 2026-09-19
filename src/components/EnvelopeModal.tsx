@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Mail, ArrowRight, Heart } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WEDDING_DATA } from '@/lib/weddingData';
 
@@ -33,7 +33,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
       sessionStorage.setItem('wedding_envelope_opened', 'true');
       
       confetti({
-        particleCount: 60,
+        particleCount: 65,
         spread: 80,
         origin: { y: 0.5 },
         colors: ['#D8B45F', '#E4CC86', '#A51D2D', '#FFF9ED', '#641D24'],
@@ -41,7 +41,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
 
       setTimeout(() => {
         confetti({
-          particleCount: 35,
+          particleCount: 40,
           spread: 60,
           origin: { y: 0.4 },
           colors: ['#E4CC86', '#D8B45F', '#FFFFFF', '#8F1724'],
@@ -53,7 +53,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
 
     setTimeout(() => {
       setIsRemoved(true);
-    }, 1100);
+    }, 1250);
   };
 
   if (isRemoved) return null;
@@ -64,26 +64,55 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
       className={`fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 select-none transition-all duration-700 backdrop-blur-md cursor-pointer overflow-y-auto ${
         isOpening
           ? 'opacity-0 pointer-events-none scale-105'
-          : 'opacity-100 bg-[#351F1D]/90'
+          : 'opacity-100 bg-[#2A0F13]/92'
       }`}
       style={{
         minHeight: '100svh',
-        background: 'radial-gradient(ellipse at center, #641D24 0%, #4A2926 50%, #351F1D 100%)',
+        background: 'radial-gradient(ellipse at center, #5A1620 0%, #3B1117 55%, #220A0E 100%)',
       }}
       aria-label="Nhấn để mở thiệp cưới"
     >
-      {/* Dynamic Ambient Luxury Lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,180,95,0.15)_0%,transparent_65%)] pointer-events-none" />
+      {/* Ambient Luxury Lighting */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,180,95,0.18)_0%,transparent_65%)] pointer-events-none" />
+
+      {/* Floating Background Petals */}
+      <div className="absolute top-8 left-6 w-12 sm:w-16 h-12 sm:h-16 pointer-events-none opacity-70 -rotate-12 animate-pulse">
+        <Image
+          src="/images/envelope_layers/petal_1.png"
+          alt="Rose Petal"
+          fill
+          sizes="64px"
+          className="object-contain"
+        />
+      </div>
+      <div className="absolute bottom-16 left-8 w-14 sm:w-20 h-14 sm:h-20 pointer-events-none opacity-60 rotate-45">
+        <Image
+          src="/images/envelope_layers/petal_2.png"
+          alt="Rose Petal"
+          fill
+          sizes="80px"
+          className="object-contain"
+        />
+      </div>
+      <div className="absolute top-16 right-8 w-14 sm:w-18 h-14 sm:h-18 pointer-events-none opacity-65 rotate-12">
+        <Image
+          src="/images/envelope_layers/petal_3.png"
+          alt="Rose Petal"
+          fill
+          sizes="72px"
+          className="object-contain"
+        />
+      </div>
 
       {/* Main Luxury Stage Container */}
       <div
-        className="relative w-full max-w-[390px] sm:max-w-[420px] flex flex-col items-center text-center z-20 my-auto py-2"
+        className="relative w-full max-w-[390px] sm:max-w-[430px] flex flex-col items-center text-center z-20 my-auto py-2"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ========================================================================= */}
         {/* 1. HEADER SECTION: Calligraphy & Couple Names                             */}
         {/* ========================================================================= */}
-        <div className="mb-2 sm:mb-3 animate-fade-in text-center drop-shadow-md">
+        <div className="mb-2 sm:mb-3 text-center drop-shadow-md">
           <h1 className="font-script text-4xl sm:text-5xl text-[#FFF5E8] drop-shadow-[0_3px_12px_rgba(0,0,0,0.7)] tracking-wide leading-tight">
             Ngày Chung Đôi
           </h1>
@@ -96,56 +125,44 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
         </div>
 
         {/* ========================================================================= */}
-        {/* 2. WEDDING CARD & ENVELOPE STAGE (TILTED TACTILE LUXURY STATIONERY)        */}
+        {/* 2. MULTI-LAYER 3D ENVELOPE STAGE                                          */}
         {/* ========================================================================= */}
         <div
           onClick={handleOpenEnvelope}
-          className="relative w-[305px] sm:w-[350px] h-[365px] sm:h-[405px] cursor-pointer group my-1 select-none"
+          className="relative w-[320px] sm:w-[365px] h-[320px] sm:h-[365px] cursor-pointer group my-1 select-none"
         >
-          {/* A. CÀNH HOA HỒNG ĐỎ GÀI CÙNG PHÍA SAU BỨC ẢNH TRONG LÒNG PHONG BÌ */}
-          <div className="absolute -top-10 -left-6 sm:-left-8 w-32 sm:w-38 h-44 sm:h-52 pointer-events-none z-10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:-rotate-6 -rotate-12 drop-shadow-2xl">
+          {/* LAYER 1: ENVELOPE BACK & OPEN FLAP (NẮP & LÒNG PHONG BÌ ĐỎ NHUNG) */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none z-10 drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
             <Image
-              src="/images/decor/red_rose_branch_decor.webp"
-              alt="Red Rose Branch"
+              src="/images/envelope_layers/envelope_back_unified.png"
+              alt="Envelope Back"
               fill
-              sizes="180px"
-              className="object-contain filter brightness-[1.01]"
-              priority
-            />
-          </div>
-
-          {/* B. BÓ HOA CƯỚI GÓC DƯỚI BÊN PHẢI PHONG BÌ */}
-          <div className="absolute -bottom-5 -right-5 sm:-right-7 w-28 sm:w-34 h-34 sm:h-42 pointer-events-none z-40 transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl">
-            <Image
-              src="/images/decor/red_rose_bouquet_decor.webp"
-              alt="Red Rose Bouquet"
-              fill
-              sizes="160px"
+              sizes="365px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* C. ENVELOPE BACK FLAP (NẮP PHONG BÌ MỞ NGƯỢC PHÍA SAU - BURGUNDY DEEP) */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 bottom-[140px] sm:bottom-[160px] w-[270px] sm:w-[310px] h-[95px] sm:h-[110px] bg-gradient-to-t from-[#8F1724] to-[#55111B] border-t border-l border-r border-[#D8B45F]/60 rounded-t-2xl z-0 pointer-events-none overflow-hidden"
-            style={{
-              clipPath: 'polygon(0% 100%, 50% 0%, 100% 100%)',
-              boxShadow: 'inset 0 4px 15px rgba(0,0,0,0.45)',
-            }}
-          >
-            {/* Lớp vân giấy mờ tinh tế */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D8B45F_1px,transparent_1px)] [background-size:12px_12px]" />
+          {/* LAYER 2: CÀNH HOA HỒNG GÀI PHÍA SAU THIỆP */}
+          <div className="absolute top-[8%] -left-3 sm:-left-5 w-28 sm:w-34 h-38 sm:h-46 pointer-events-none z-15 transition-transform duration-500 group-hover:-translate-y-2 group-hover:-rotate-6 -rotate-12 drop-shadow-xl">
+            <Image
+              src="/images/decor/red_rose_branch_decor.webp"
+              alt="Red Rose Branch"
+              fill
+              sizes="150px"
+              className="object-contain"
+              priority
+            />
           </div>
 
           {/* ======================================================================= */}
-          {/* D. IVORY WEDDING CARD (TẤM THIỆP CƯỚI NGHIÊNG NHẸ NGHỆ THUẬT)            */}
+          {/* LAYER 3: THE WEDDING INVITATION CARD (TẤM THIỆP CƯỚI RÚT RA)            */}
           {/* ======================================================================= */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 top-1 w-[225px] sm:w-[258px] bg-[#FFF9ED] p-2.5 sm:p-3 rounded-2xl shadow-[0_16px_45px_rgba(0,0,0,0.55)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-15 ${
+            className={`absolute left-1/2 -translate-x-1/2 w-[215px] sm:w-[245px] bg-[#FFFDF9] p-2.5 sm:p-3 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-20 ${
               isOpening
-                ? '-translate-y-16 rotate-0 scale-105 shadow-2xl'
-                : '-rotate-[3.5deg] group-hover:-translate-y-2.5 group-hover:-rotate-1'
+                ? '-translate-y-28 rotate-0 scale-105 shadow-2xl'
+                : 'top-[22%] -rotate-[2.5deg] group-hover:-translate-y-3 group-hover:-rotate-1'
             }`}
             style={{ transformOrigin: 'bottom center' }}
           >
@@ -157,20 +174,20 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
               </svg>
             </div>
 
-            {/* 1. KHUNG ẢNH LỄ ĐƯỜNG: CHIẾM 65% CARD, HIỂN THỊ TRỌN VẸN CÔ DÂU CHÚ RỂ VÀ KIẾN TRÚC */}
+            {/* 1. KHUNG ẢNH LỄ ĐƯỜNG KIẾN TRÚC */}
             <div className="relative w-full aspect-[4/4.6] rounded-xl overflow-hidden bg-stone-100 border border-[#D8B45F]/40 shadow-inner">
               <Image
                 src="/images/wedding_opt/H2H08970.jpg"
                 alt="Đỗ Thành Nhớ & Phạm Thị Ngân"
                 fill
-                sizes="280px"
+                sizes="260px"
                 className="object-cover object-[center_60%] filter brightness-[1.02] contrast-[1.02]"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#351F1D]/35 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* 2. PHẦN THÔNG TIN NGÀY CƯỚI TRÊN THIỆP (EDITORIAL TYPOGRAPHY) */}
+            {/* 2. THÔNG TIN NGÀY CƯỚI TRÊN THIỆP */}
             <div className="pt-2 pb-1 text-center font-serif">
               <p className="text-[9px] uppercase tracking-[0.25em] text-[#8F1724] font-bold">
                 Ngày Chung Đôi
@@ -184,45 +201,44 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             </div>
           </div>
 
-          {/* ======================================================================= */}
-          {/* E. ENVELOPE FRONT BODY (THÂN PHONG BÌ PHÍA TRƯỚC - CHỈ CHE 30% THIỆP)    */}
-          {/* ======================================================================= */}
-          <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[275px] sm:w-[315px] h-[155px] sm:h-[175px] bg-gradient-to-b from-[#8F1724] via-[#7B131F] to-[#55101A] rounded-b-3xl shadow-[0_20px_50px_rgba(0,0,0,0.65)] border-b border-l border-r border-[#D8B45F]/60 z-25 pointer-events-none overflow-hidden"
-            style={{
-              clipPath: 'polygon(0% 0%, 50% 46%, 100% 0%, 100% 100%, 0% 100%)',
-            }}
-          >
-            {/* Vân giấy nhung chìm cao cấp */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFF9ED_1px,transparent_1px)] [background-size:10px_10px]" />
-
-            {/* Ánh sáng 3D góc phản chiếu nhẹ */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,249,237,0.15) 0%, transparent 45%)',
-              }}
+          {/* LAYER 4: ENVELOPE FRONT FLAP POCKET (THÂN TRƯỚC PHONG BÌ CHỨA THIỆP) */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none z-30 drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]">
+            <Image
+              src="/images/envelope_layers/envelope_front_unified.png"
+              alt="Envelope Front"
+              fill
+              sizes="365px"
+              className="object-contain"
+              priority
             />
-
-            {/* DÒNG CHỮ TRÂN TRỌNG KÍNH MỜI TRÊN THÂN PHONG BÌ */}
-            <div className="absolute bottom-3 inset-x-0 text-center font-serif text-[10px] uppercase tracking-[0.25em] text-[#E4CC86] font-medium drop-shadow-sm flex items-center justify-center gap-2">
-              <span className="text-[9px]">✤</span>
-              <span>TRÂN TRỌNG KÍNH MỜI</span>
-              <span className="text-[9px]">✤</span>
-            </div>
           </div>
 
-          {/* ======================================================================= */}
-          {/* F. WAX SEAL MONOGRAM (CON DẤU SÁP VÀNG KIM DẬP NỔI TRÁI TIM)            */}
-          {/* ======================================================================= */}
+          {/* LAYER 5: WAX SEAL VÀNG KIM TRÁI TIM (DẬP TRÊN MIỆNG PHONG BÌ) */}
           <div
-            className={`absolute bottom-[72px] sm:bottom-[82px] left-1/2 -translate-x-1/2 z-30 transition-all duration-300 ${
-              isOpening ? 'opacity-0 scale-125' : 'opacity-100 scale-100'
+            className={`absolute top-[52%] left-1/2 -translate-x-1/2 w-14 sm:w-16 h-14 sm:h-16 pointer-events-none z-40 transition-all duration-400 drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)] ${
+              isOpening ? 'scale-125 opacity-0' : 'scale-100 opacity-100 group-hover:scale-110 animate-[pulse_3.5s_ease-in-out_infinite]'
             }`}
           >
-            <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-[#E4CC86] via-[#D8B45F] to-[#9C7A2E] text-[#641D24] flex items-center justify-center shadow-[0_6px_22px_rgba(0,0,0,0.55)] border-2 border-[#FFF9ED] ring-1 ring-[#D8B45F] group-hover:scale-110 transition-transform animate-[pulse_3.5s_ease-in-out_infinite]">
-              <Heart className="w-5 h-5 fill-[#641D24] text-[#641D24] drop-shadow-xs" />
-            </div>
+            <Image
+              src="/images/envelope_layers/wax_seal_gold.png"
+              alt="Golden Heart Wax Seal"
+              fill
+              sizes="70px"
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          {/* LAYER 6: BÓ HOA CƯỚI ĐỎ & RUY BĂNG GÓC DƯỚI BÊN PHẢI */}
+          <div className="absolute -bottom-2 -right-4 sm:-right-7 w-32 sm:w-38 h-32 sm:h-38 pointer-events-none z-45 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_12px_25px_rgba(0,0,0,0.6)]">
+            <Image
+              src="/images/envelope_layers/rose_bouquet.png"
+              alt="Red Rose Bouquet"
+              fill
+              sizes="160px"
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
 
@@ -252,3 +268,4 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
     </div>
   );
 }
+
