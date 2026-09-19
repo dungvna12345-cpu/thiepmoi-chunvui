@@ -91,7 +91,7 @@ export default function EventsSection() {
                       Mẹ: {groom.mother}
                     </div>
                     <span className="text-[10px] text-white/60 block mt-1">
-                      Thôn Yên Phú, Ngọc Hồi, Hà Nội
+                      Thôn Yên Phú, Liên Ninh, Hà Nội
                     </span>
                   </div>
 
