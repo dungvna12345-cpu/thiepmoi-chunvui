@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import EnvelopeModal from '@/components/EnvelopeModal';
 import PetalCanvas from '@/components/PetalCanvas';
 import MusicPlayer from '@/components/MusicPlayer';
+import AutoScroller from '@/components/AutoScroller';
 import HeroSection from '@/components/HeroSection';
 import WeddingCalendarSection from '@/components/WeddingCalendarSection';
 import GallerySection from '@/components/GallerySection';
@@ -36,6 +37,9 @@ export default function WeddingPage() {
 
       {/* Floating Vinyl Music Player */}
       <MusicPlayer autoPlayTrigger={hasStartedMusic} />
+
+      {/* Cinematic Hands-free Auto Scroller */}
+      <AutoScroller enabled={hasStartedMusic} />
 
       {/* 1. BÌA THIỆP: POSTER CƯỚI CÓ DẤU ẤN (THE VOW Editorial Cover) */}
       <HeroSection />
