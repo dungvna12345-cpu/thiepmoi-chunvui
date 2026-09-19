@@ -96,7 +96,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           {/* A. CÀNH HOA CÚC TRẮNG GÓC TRÊN BÊN TRÁI (TOP-LEFT DAISY BRANCH) */}
           <div className="absolute -top-6 -left-8 sm:-left-10 w-28 sm:w-36 h-36 sm:h-44 pointer-events-none z-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-3 drop-shadow-md">
             <Image
-              src="/images/decor/daisy_branch_decor.png"
+              src="/images/decor/daisy_branch_decor.webp"
               alt="White Daisy Flowers"
               fill
               sizes="160px"
@@ -108,7 +108,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           {/* B. BÓ HOA CƯỚI GÓC DƯỚI BÊN PHẢI (BOTTOM-RIGHT FLOWER BOUQUET) */}
           <div className="absolute -bottom-5 -right-6 sm:-right-8 w-28 sm:w-34 h-32 sm:h-40 pointer-events-none z-40 transition-transform duration-500 group-hover:scale-105 drop-shadow-lg">
             <Image
-              src="/images/decor/flower_bouquet_decor.png"
+              src="/images/decor/flower_bouquet_decor.webp"
               alt="Wedding Bouquet"
               fill
               sizes="150px"
