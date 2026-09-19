@@ -64,16 +64,24 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
       className={`fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 select-none transition-all duration-700 backdrop-blur-md cursor-pointer overflow-y-auto ${
         isOpening
           ? 'opacity-0 pointer-events-none scale-105'
-          : 'opacity-100 bg-[#2A0F13]/92'
+          : 'opacity-100 bg-[#2A0F13]/90'
       }`}
-      style={{
-        minHeight: '100svh',
-        background: 'radial-gradient(ellipse at center, #5A1620 0%, #3B1117 55%, #220A0E 100%)',
-      }}
       aria-label="Nhấn để mở thiệp cưới"
     >
-      {/* Ambient Luxury Lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,180,95,0.18)_0%,transparent_65%)] pointer-events-none" />
+      {/* Luxury Burgundy Bokeh Background Image */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <Image
+          src="/images/envelope_layers/modal_bg_bokeh.webp"
+          alt="Luxury Red Velvet Bokeh Background"
+          fill
+          sizes="100vw"
+          className="object-cover object-center filter brightness-[0.88] contrast-[1.08]"
+          priority
+        />
+        {/* Subtle Vignette Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2A0F13]/40 via-transparent to-[#1F070A]/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,180,95,0.14)_0%,transparent_70%)] pointer-events-none" />
+      </div>
 
       {/* Floating Background Petals */}
       <div className="absolute top-8 left-6 w-12 sm:w-16 h-12 sm:h-16 pointer-events-none opacity-70 -rotate-12 animate-pulse">
@@ -144,7 +152,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           </div>
 
           {/* LAYER 2: CÀNH HOA HỒNG GÀI PHÍA SAU THIỆP */}
-          <div className="absolute top-[8%] -left-3 sm:-left-5 w-28 sm:w-34 h-38 sm:h-46 pointer-events-none z-15 transition-transform duration-500 group-hover:-translate-y-2 group-hover:-rotate-6 -rotate-12 drop-shadow-xl">
+          <div className="absolute top-[6%] -left-3 sm:-left-5 w-28 sm:w-34 h-38 sm:h-46 pointer-events-none z-15 transition-transform duration-500 group-hover:-translate-y-2 group-hover:-rotate-6 -rotate-12 drop-shadow-xl">
             <Image
               src="/images/decor/red_rose_branch_decor.webp"
               alt="Red Rose Branch"
@@ -156,18 +164,18 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           </div>
 
           {/* ======================================================================= */}
-          {/* LAYER 3: THE WEDDING INVITATION CARD (TẤM THIỆP CƯỚI RÚT RA)            */}
+          {/* LAYER 3: THE WEDDING INVITATION CARD (TẤM THIỆP CƯỚI LỒNG GỌN BÊN TRONG) */}
           {/* ======================================================================= */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 w-[215px] sm:w-[245px] bg-[#FFFDF9] p-2.5 sm:p-3 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-20 ${
+            className={`absolute left-1/2 -translate-x-1/2 w-[210px] sm:w-[240px] bg-[#FFFDF9] p-2 sm:p-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-20 ${
               isOpening
                 ? '-translate-y-28 rotate-0 scale-105 shadow-2xl'
-                : 'top-[22%] -rotate-[2.5deg] group-hover:-translate-y-3 group-hover:-rotate-1'
+                : 'top-[7%] -rotate-[2.5deg] group-hover:-translate-y-2.5 group-hover:-rotate-1'
             }`}
             style={{ transformOrigin: 'bottom center' }}
           >
             {/* Kẹp tim vàng tinh xảo ở góc trên bên trái tấm ảnh */}
-            <div className="absolute -top-2.5 left-3.5 z-30 pointer-events-none drop-shadow-md">
+            <div className="absolute -top-2.5 left-3 z-30 pointer-events-none drop-shadow-md">
               <svg width="22" height="26" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4C8 0 2 3 2 9C2 15 12 23 12 23C12 23 22 15 22 9C22 3 16 0 12 4Z" stroke="#D8B45F" strokeWidth="2.5" fill="#E4CC86" fillOpacity="0.4" />
                 <path d="M12 7C9.5 4 5 6 5 10C5 14 12 20 12 20C12 20 19 14 19 10C19 6 14.5 4 12 7Z" stroke="#D8B45F" strokeWidth="1.5" />
@@ -175,12 +183,12 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             </div>
 
             {/* 1. KHUNG ẢNH LỄ ĐƯỜNG KIẾN TRÚC */}
-            <div className="relative w-full aspect-[4/4.6] rounded-xl overflow-hidden bg-stone-100 border border-[#D8B45F]/40 shadow-inner">
+            <div className="relative w-full aspect-[4/4.2] rounded-xl overflow-hidden bg-stone-100 border border-[#D8B45F]/40 shadow-inner">
               <Image
                 src="/images/wedding_opt/H2H08970.jpg"
                 alt="Đỗ Thành Nhớ & Phạm Thị Ngân"
                 fill
-                sizes="260px"
+                sizes="240px"
                 className="object-cover object-[center_60%] filter brightness-[1.02] contrast-[1.02]"
                 priority
               />
@@ -188,7 +196,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             </div>
 
             {/* 2. THÔNG TIN NGÀY CƯỚI TRÊN THIỆP */}
-            <div className="pt-2 pb-1 text-center font-serif">
+            <div className="pt-1.5 pb-0.5 text-center font-serif">
               <p className="text-[9px] uppercase tracking-[0.25em] text-[#8F1724] font-bold">
                 Ngày Chung Đôi
               </p>
@@ -215,7 +223,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
 
           {/* LAYER 5: WAX SEAL VÀNG KIM TRÁI TIM (DẬP TRÊN MIỆNG PHONG BÌ) */}
           <div
-            className={`absolute top-[52%] left-1/2 -translate-x-1/2 w-14 sm:w-16 h-14 sm:h-16 pointer-events-none z-40 transition-all duration-400 drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)] ${
+            className={`absolute top-[52%] left-1/2 -translate-x-1/2 w-13 sm:w-15 h-13 sm:h-15 pointer-events-none z-40 transition-all duration-400 drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)] ${
               isOpening ? 'scale-125 opacity-0' : 'scale-100 opacity-100 group-hover:scale-110 animate-[pulse_3.5s_ease-in-out_infinite]'
             }`}
           >
@@ -223,7 +231,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
               src="/images/envelope_layers/wax_seal_gold.png"
               alt="Golden Heart Wax Seal"
               fill
-              sizes="70px"
+              sizes="65px"
               className="object-contain"
               priority
             />
@@ -259,7 +267,7 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           </button>
 
           {/* Helpful Subtitle */}
-          <p className="text-[11px] text-[#E7D5C2]/75 font-serif tracking-wider italic font-light drop-shadow-xs">
+          <p className="text-[11px] text-[#E7D5C2]/85 font-serif tracking-wider italic font-light drop-shadow-xs">
             Chạm vào phong bì hoặc nhấn mở thiệp để bắt đầu
           </p>
         </div>
@@ -268,4 +276,5 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
     </div>
   );
 }
+
 
