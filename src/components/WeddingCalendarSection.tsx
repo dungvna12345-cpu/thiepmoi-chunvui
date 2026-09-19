@@ -85,7 +85,7 @@ export default function WeddingCalendarSection() {
         {/* ========================================================================= */}
         {/* KHUNG THIỆP HOÀNG GIA CHỈ VÀNG (ROYAL GOLD FILIGREE FRAME CARD)            */}
         {/* ========================================================================= */}
-        <ScrollReveal animation="zoom-in" duration={850} delay={200}>
+        <ScrollReveal animation="rise" duration={900} delay={150}>
           <div className="bg-white border-2 border-[#C59B55]/50 shadow-[0_30px_70px_-15px_rgba(201,42,66,0.15)] rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-visible ring-4 ring-[#C59B55]/15 ring-offset-2 ring-offset-[#FFFDF9]">
             
             {/* 4 HOA VĂN GÓC CHỈ VÀNG HOÀNG GIA (FILIGREE CORNERS) */}

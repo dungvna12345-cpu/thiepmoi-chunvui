@@ -56,8 +56,8 @@ export default function GiftSection() {
         {/* 2 Bank Registry Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          {/* Chú Rể (Thành Nhớ) - Slide from left */}
-          <ScrollReveal animation="slide-left" duration={850} delay={200}>
+          {/* Chú Rể (Thành Nhớ) - Rise */}
+          <ScrollReveal animation="rise" duration={900} delay={150}>
             <div className="bg-white p-8 border border-[#EFE6D8] shadow-[0_15px_40px_-15px_rgba(201,42,66,0.08)] flex flex-col items-center text-center relative group hover:border-[#C92A42] transition-all duration-300 rounded-xs hover:-translate-y-1 overflow-visible">
               
               {/* ĐÍNH HOA NHỎ XINH */}
@@ -114,8 +114,8 @@ export default function GiftSection() {
             </div>
           </ScrollReveal>
 
-          {/* Cô Dâu (Ngọc Ngân) - Slide from right */}
-          <ScrollReveal animation="slide-right" duration={850} delay={300}>
+          {/* Cô Dâu (Ngọc Ngân) - Rise */}
+          <ScrollReveal animation="rise" duration={900} delay={300}>
             <div className="bg-white p-8 border border-[#EFE6D8] shadow-[0_15px_40px_-15px_rgba(201,42,66,0.08)] flex flex-col items-center text-center relative group hover:border-[#C92A42] transition-all duration-300 rounded-xs hover:-translate-y-1 overflow-visible">
               
               {/* ĐÍNH HOA NHỎ XINH */}

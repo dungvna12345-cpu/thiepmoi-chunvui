@@ -56,7 +56,7 @@ export default function EventsSection() {
           {/* ======================================================================= */}
           {/* CARD 1: THÔNG TIN HÔN LỄ NHÀ TRAI (LỄ THÀNH HÔN & MỜI CỖ)                */}
           {/* ======================================================================= */}
-          <ScrollReveal animation="slide-right" duration={850} delay={200} className="w-full relative">
+          <ScrollReveal animation="rise" duration={900} delay={150} className="w-full relative">
             <div className="relative w-full bg-gradient-to-b from-[#560C1B] via-[#4A0A16] to-[#36050E] text-[#FDF8F2] rounded-3xl p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(86,12,27,0.45)] border border-[#851E32]/60 overflow-visible">
               
               {/* ATTACHED BOTANICAL FLORAL BRANCH CLINGING ON RIGHT EDGE */}
@@ -208,7 +208,7 @@ export default function EventsSection() {
           {/* ======================================================================= */}
           {/* CARD 2: THÔNG TIN TIỆC CƯỚI & LỄ VU QUY (INSET CALENDAR WIDGET)           */}
           {/* ======================================================================= */}
-          <ScrollReveal animation="slide-left" duration={850} delay={300} className="w-full relative">
+          <ScrollReveal animation="rise" duration={900} delay={300} className="w-full relative">
             <div className="relative w-full bg-gradient-to-b from-[#560C1B] via-[#4A0A16] to-[#36050E] text-[#FDF8F2] rounded-3xl p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(86,12,27,0.45)] border border-[#851E32]/60 overflow-visible">
               
               {/* ATTACHED BOTANICAL FLORAL BRANCH CLINGING ON LEFT EDGE */}

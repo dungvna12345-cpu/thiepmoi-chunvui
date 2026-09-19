@@ -86,7 +86,7 @@ export default function RsvpSection() {
         </ScrollReveal>
 
         {/* The Reply Card (Carte-réponse) Container */}
-        <ScrollReveal animation="zoom-in" duration={850} delay={200}>
+        <ScrollReveal animation="rise" duration={900} delay={150}>
           <div className="bg-white p-6 sm:p-12 border border-[#EFE6D8] shadow-[0_20px_50px_-15px_rgba(201,42,66,0.08)] relative rounded-xs overflow-visible">
             
             {/* ĐÍNH HOA NHỎ XINH */}

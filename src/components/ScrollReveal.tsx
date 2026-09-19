@@ -8,7 +8,9 @@ type AnimationType =
   | 'slide-left' 
   | 'slide-right' 
   | 'zoom-in' 
-  | 'flip-up';
+  | 'flip-up'
+  | 'rise'
+  | 'rise-scale';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -22,11 +24,11 @@ interface ScrollRevealProps {
 
 export default function ScrollReveal({
   children,
-  animation = 'fade-up',
+  animation = 'rise',
   delay = 0,
-  duration = 800,
+  duration = 900,
   className = '',
-  threshold = 0.12,
+  threshold = 0.1,
   once = true,
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,7 +51,7 @@ export default function ScrollReveal({
       },
       {
         threshold,
-        rootMargin: '0px 0px -40px 0px',
+        rootMargin: '0px 0px -50px 0px',
       }
     );
 
@@ -65,6 +67,10 @@ export default function ScrollReveal({
     if (isVisible) return 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
 
     switch (animation) {
+      case 'rise':
+        return 'translate3d(0, 60px, 0) scale(0.97)';
+      case 'rise-scale':
+        return 'translate3d(0, 80px, 0) scale(0.93)';
       case 'fade-up':
         return 'translate3d(0, 50px, 0)';
       case 'fade-down':
@@ -78,7 +84,7 @@ export default function ScrollReveal({
       case 'flip-up':
         return 'perspective(1200px) rotateX(25deg) translate3d(0, 45px, 0)';
       default:
-        return 'translate3d(0, 50px, 0)';
+        return 'translate3d(0, 60px, 0) scale(0.97)';
     }
   };
 
@@ -89,7 +95,7 @@ export default function ScrollReveal({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+        transition: `opacity ${duration}ms cubic-bezier(0.22, 1, 0.36, 1), transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`,
         transitionDelay: `${delay}ms`,
         willChange: 'opacity, transform',
       }}
