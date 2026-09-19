@@ -61,12 +61,12 @@ export default function HeroSection() {
         {/* Full-bleed crisp poster image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/wedding_opt/save_the_date_poster.jpg"
+            src="/images/wedding_opt/hero_poster_master.webp"
             alt="Save The Date - Thành Nhớ & Phạm Ngân"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter contrast-[1.02] brightness-[0.98]"
+            className="object-cover object-center filter contrast-[1.02] brightness-[1.01]"
           />
         </div>
 
