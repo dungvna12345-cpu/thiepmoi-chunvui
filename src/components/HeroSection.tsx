@@ -37,7 +37,7 @@ export default function HeroSection() {
         origin: { y: 0.8 },
         colors: ['#E84D67', '#D4AF37', '#FFD1DC', '#FFFDF9'],
       });
-    } catch {}
+    } catch { }
     const newCount = await incrementHeartLikes();
     setLikes(newCount);
     setHasLiked(true);
@@ -52,16 +52,16 @@ export default function HeroSection() {
 
   return (
     <div className="w-full select-none">
-      
+
       {/* ========================================================================= */}
       {/* PHẦN 1: ẢNH BÌA POSTER TRÀN VIỀN NGUYÊN BẢN (KHÔNG CHÈN CHỮ ĐÈ MẶT)       */}
       {/* ========================================================================= */}
       <section className="relative w-full h-screen min-h-[680px] max-h-[1050px] overflow-hidden bg-stone-950 flex flex-col justify-between">
-        
+
         {/* Full-bleed crisp poster image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/wedding_opt/hero_poster_master.webp"
+            src="/images/wedding_opt/heroosection.png"
             alt="Save The Date - Thành Nhớ & Phạm Ngân"
             fill
             priority
@@ -128,7 +128,7 @@ export default function HeroSection() {
         <HeartDamaskWatermark opacity={0.035} />
 
         <div className="max-w-4xl mx-auto text-center relative z-10 font-serif">
-          
+
           {/* Top Tagline */}
           <ScrollReveal animation="fade-down" delay={100}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#C59B55]/40 rounded-full text-[#C92A42] text-[11px] uppercase tracking-[0.25em] font-semibold mb-6 shadow-2xs">
@@ -183,7 +183,7 @@ export default function HeroSection() {
           {/* Action Buttons */}
           <ScrollReveal animation="fade-up" delay={500}>
             <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-8">
-              
+
               <button
                 onClick={() => scrollToSection('rsvp-section')}
                 className="px-8 sm:px-10 py-3.5 sm:py-4 bg-[#C92A42] hover:bg-[#A81B32] text-white text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] rounded-full cursor-pointer"
@@ -205,19 +205,17 @@ export default function HeroSection() {
           {/* Heart Blessing Pill & Countdown Tag */}
           <ScrollReveal animation="fade-up" delay={600}>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              
+
               <button
                 onClick={handleHeartClick}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs transition-all duration-300 shadow-xs cursor-pointer border ${
-                  hasLiked
-                    ? 'border-[#C92A42] bg-[#FFF0F3] text-[#C92A42] font-semibold'
-                    : 'border-[#C59B55]/50 bg-white hover:bg-[#FFF0F3] hover:border-[#C92A42] text-[#736266]'
-                }`}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs transition-all duration-300 shadow-xs cursor-pointer border ${hasLiked
+                  ? 'border-[#C92A42] bg-[#FFF0F3] text-[#C92A42] font-semibold'
+                  : 'border-[#C59B55]/50 bg-white hover:bg-[#FFF0F3] hover:border-[#C92A42] text-[#736266]'
+                  }`}
               >
                 <Heart
-                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                    hasLiked ? 'fill-[#C92A42] text-[#C92A42] scale-110' : 'text-[#C92A42]'
-                  }`}
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${hasLiked ? 'fill-[#C92A42] text-[#C92A42] scale-110' : 'text-[#C92A42]'
+                    }`}
                   strokeWidth={2}
                 />
                 <span className="text-[11px] sm:text-xs tracking-wider">
