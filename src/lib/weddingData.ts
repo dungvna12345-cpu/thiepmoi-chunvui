@@ -15,11 +15,11 @@ export const WEDDING_DATA = {
     portrait: '/images/custom_crops/groom_portrait.jpg',
     quote: 'Từ ngày gặp em, anh biết rằng hạnh phúc đích thực là được cùng em chia sẻ những niềm vui bình dị nhất mỗi ngày.',
     bank: {
-      bankName: 'Ngân hàng Quân Đội (MB Bank)',
-      accountNumber: '999988882803',
+      bankName: 'VietinBank (Ngân hàng TMCP Công Thương Việt Nam)',
+      accountNumber: '102872062303',
       accountHolder: 'DO THANH NHO',
-      branch: 'Chi nhánh Hà Nội',
-      qrUrl: 'https://img.vietqr.io/image/MB-999988882803-compact2.png?amount=0&addInfo=Mung%20cuoi%20Thanh%20Nho&accountName=DO%20THANH%20NHO',
+      branch: 'CN Thái Nguyên - PGD Tân Lập',
+      qrUrl: '/images/wedding_opt/vietqr_do_thanh_nho_card.png',
     },
   },
   bride: {

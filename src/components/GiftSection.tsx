@@ -14,14 +14,14 @@ import {
 } from '@/components/WatermarkDecorations';
 
 export default function GiftSection() {
-  const { groom, bride } = WEDDING_DATA;
-  const [copiedBank, setCopiedBank] = useState<string | null>(null);
+  const { groom } = WEDDING_DATA;
+  const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = (accountNumber: string, bankId: string) => {
-    navigator.clipboard.writeText(accountNumber);
-    setCopiedBank(bankId);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(groom.bank.accountNumber);
+    setIsCopied(true);
     setTimeout(() => {
-      setCopiedBank(null);
+      setIsCopied(false);
     }, 2500);
   };
 
@@ -37,14 +37,14 @@ export default function GiftSection() {
         
         {/* Section Header */}
         <ScrollReveal animation="fade-down" delay={100}>
-          <div className="text-center mb-16 sm:mb-20">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white border border-[#C59B55]/40 rounded-full text-[#C92A42] text-[11px] uppercase tracking-[0.25em] font-serif font-semibold mb-3 shadow-2xs">
               <Sparkles className="w-3 h-3 text-[#D4AF37]" />
               <span>Hộp Mừng Cưới &bull; Chúc Phúc</span>
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#2C2224] tracking-wide font-normal">
-              Gửi Lời Chúc &amp; Mừng Cưới
+              Hộp Mừng Cưới
             </h2>
             <BotanicalDivider />
             <p className="text-xs sm:text-sm font-serif italic text-[#736266] mt-2 max-w-md mx-auto font-light leading-relaxed">
@@ -53,129 +53,75 @@ export default function GiftSection() {
           </div>
         </ScrollReveal>
 
-        {/* 2 Bank Registry Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Chú Rể (Thành Nhớ) - Rise */}
+        {/* Single Centered Bank Registry Card */}
+        <div className="max-w-md mx-auto">
           <ScrollReveal animation="rise" duration={900} delay={150}>
-            <div className="bg-white p-8 border border-[#EFE6D8] shadow-[0_15px_40px_-15px_rgba(201,42,66,0.08)] flex flex-col items-center text-center relative group hover:border-[#C92A42] transition-all duration-300 rounded-xs hover:-translate-y-1 overflow-visible">
+            <div className="bg-white p-6 sm:p-9 border-2 border-[#C59B55]/50 shadow-[0_20px_50px_-15px_rgba(201,42,66,0.12)] flex flex-col items-center text-center relative group hover:border-[#C92A42] transition-all duration-300 rounded-2xl overflow-visible ring-4 ring-[#C59B55]/10">
               
               {/* ĐÍNH HOA NHỎ XINH */}
               <AttachedSmallFlower position="top-right" size="tiny" />
               <GoldRoseWatermark position="bottom-left" opacity={0.05} size="small" />
 
-              <span className="text-[10px] uppercase font-serif tracking-[0.25em] text-[#C59B55] font-semibold mb-1 relative z-10">
-                Tài Khoản Chú Rể
+              <span className="text-[10px] sm:text-[11px] uppercase font-serif tracking-[0.25em] text-[#C59B55] font-semibold mb-1 relative z-10">
+                Tài Khoản Mừng Cưới
               </span>
-              <h3 className="font-heading text-2xl text-[#2C2224] mb-5 font-normal relative z-10">
-                {groom.name}
+              <h3 className="font-heading text-2xl sm:text-3xl text-[#2C2224] mb-4 font-normal relative z-10">
+                {groom.bank.accountHolder}
               </h3>
 
               {/* VietQR Code Frame */}
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 p-2.5 bg-[#FFFDF9] border border-[#EFE6D8] mb-5 shadow-xs flex items-center justify-center rounded-2xs z-10">
+              <div className="relative w-56 h-auto sm:w-64 p-2 bg-[#FFFDF9] border border-[#EFE6D8] mb-5 shadow-xs flex items-center justify-center rounded-xl z-10">
                 <img
                   src={groom.bank.qrUrl}
-                  alt={`QR Mừng Cưới ${groom.name}`}
-                  className="w-full h-full object-contain"
+                  alt={`QR Mừng Cưới ${groom.bank.accountHolder}`}
+                  className="w-full h-auto object-contain rounded-lg"
                   loading="lazy"
                 />
               </div>
 
               {/* Bank Info */}
-              <div className="space-y-1 font-serif text-xs mb-5 w-full relative z-10">
-                <p className="text-[#736266] text-[11px] font-medium uppercase tracking-wider">
+              <div className="space-y-1.5 font-serif text-xs sm:text-sm mb-6 w-full relative z-10">
+                <p className="text-[#736266] text-xs font-medium uppercase tracking-wider">
                   {groom.bank.bankName}
                 </p>
-                <p className="font-mono text-base font-bold text-[#C92A42] tracking-wider">
-                  {groom.bank.accountNumber}
-                </p>
-                <p className="text-[#2C2224] font-semibold uppercase text-[11px]">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="font-mono text-lg sm:text-xl font-bold text-[#C92A42] tracking-widest">
+                    {groom.bank.accountNumber}
+                  </span>
+                </div>
+                <p className="text-[#2C2224] font-semibold uppercase text-xs tracking-wider">
                   {groom.bank.accountHolder}
                 </p>
-              </div>
-
-              {/* Copy Button */}
-              <button
-                onClick={() => handleCopy(groom.bank.accountNumber, 'groom')}
-                className="w-full py-2.5 px-4 bg-white hover:bg-[#FFF0F3] text-[#2C2224] hover:text-[#C92A42] border border-[#C59B55]/60 hover:border-[#C92A42] text-xs font-serif uppercase tracking-[0.15em] font-semibold transition-all flex items-center justify-center gap-2 rounded-xs shadow-2xs relative z-10"
-              >
-                {copiedBank === 'groom' ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Đã Sao Chép STK</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-[#C59B55]" />
-                    <span>Sao Chép Số Tài Khoản</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </ScrollReveal>
-
-          {/* Cô Dâu (Ngọc Ngân) - Rise */}
-          <ScrollReveal animation="rise" duration={900} delay={300}>
-            <div className="bg-white p-8 border border-[#EFE6D8] shadow-[0_15px_40px_-15px_rgba(201,42,66,0.08)] flex flex-col items-center text-center relative group hover:border-[#C92A42] transition-all duration-300 rounded-xs hover:-translate-y-1 overflow-visible">
-              
-              {/* ĐÍNH HOA NHỎ XINH */}
-              <AttachedSmallFlower position="top-left" size="tiny" />
-              <GoldRoseWatermark position="bottom-right" opacity={0.05} size="small" />
-
-              <span className="text-[10px] uppercase font-serif tracking-[0.25em] text-[#C59B55] font-semibold mb-1 relative z-10">
-                Tài Khoản Cô Dâu
-              </span>
-              <h3 className="font-heading text-2xl text-[#2C2224] mb-5 font-normal relative z-10">
-                {bride.name}
-              </h3>
-
-              {/* VietQR Code Frame */}
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 p-2.5 bg-[#FFFDF9] border border-[#EFE6D8] mb-5 shadow-xs flex items-center justify-center rounded-2xs z-10">
-                <img
-                  src={bride.bank.qrUrl}
-                  alt={`QR Mừng Cưới ${bride.name}`}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Bank Info */}
-              <div className="space-y-1 font-serif text-xs mb-5 w-full">
-                <p className="text-[#736266] text-[11px] font-medium uppercase tracking-wider">
-                  {bride.bank.bankName}
-                </p>
-                <p className="font-mono text-base font-bold text-[#C92A42] tracking-wider">
-                  {bride.bank.accountNumber}
-                </p>
-                <p className="text-[#2C2224] font-semibold uppercase text-[11px]">
-                  {bride.bank.accountHolder}
+                <p className="text-[#736266] text-[11px] font-light">
+                  {groom.bank.branch}
                 </p>
               </div>
 
               {/* Copy Button */}
               <button
-                onClick={() => handleCopy(bride.bank.accountNumber, 'bride')}
-                className="w-full py-2.5 px-4 bg-white hover:bg-[#FFF0F3] text-[#2C2224] hover:text-[#C92A42] border border-[#C59B55]/60 hover:border-[#C92A42] text-xs font-serif uppercase tracking-[0.15em] font-semibold transition-all flex items-center justify-center gap-2 rounded-xs shadow-2xs"
+                type="button"
+                onClick={handleCopy}
+                className="w-full py-3 px-5 bg-gradient-to-r from-[#C92A42] to-[#A81B32] hover:from-[#A81B32] hover:to-[#851525] text-white text-xs sm:text-sm font-serif uppercase tracking-[0.15em] font-semibold transition-all duration-300 flex items-center justify-center gap-2 rounded-xl shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer relative z-10"
               >
-                {copiedBank === 'bride' ? (
+                {isCopied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Đã Sao Chép STK</span>
+                    <Check className="w-4 h-4 text-white" strokeWidth={2.5} />
+                    <span>Đã Sao Chép Số Tài Khoản</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-[#C59B55]" />
-                    <span>Sao Chép Số Tài Khoản</span>
+                    <Copy className="w-4 h-4 text-white/90" />
+                    <span>Sao Chép Số Tài Khoản ({groom.bank.accountNumber})</span>
                   </>
                 )}
               </button>
             </div>
           </ScrollReveal>
-
         </div>
 
       </div>
     </section>
   );
 }
+
 
