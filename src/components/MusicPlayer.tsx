@@ -95,8 +95,9 @@ export default function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
         loop
         preload="auto"
       >
-        <source src="/audio/em_dong_y_i_do.webm" type="audio/webm" />
+        <source src="/audio/em_dong_y_i_do.mp3" type="audio/mpeg" />
         <source src="/audio/em_dong_y_i_do.m4a" type="audio/mp4" />
+        <source src="/audio/em_dong_y_i_do.webm" type="audio/webm" />
       </audio>
     </div>
   );
