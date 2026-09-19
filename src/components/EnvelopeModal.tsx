@@ -167,28 +167,28 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
           {/* LAYER 3: THE WEDDING INVITATION CARD (TẤM THIỆP CƯỚI LỒNG GỌN BÊN TRONG) */}
           {/* ======================================================================= */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 w-[210px] sm:w-[240px] bg-[#FFFDF9] p-2 sm:p-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-20 ${
+            className={`absolute left-1/2 -translate-x-1/2 w-[195px] sm:w-[222px] bg-[#FFFDF9] p-2 rounded-2xl shadow-[0_12px_35px_rgba(0,0,0,0.45)] border border-[#D8B45F]/70 transition-all duration-700 ease-out z-20 ${
               isOpening
                 ? '-translate-y-28 rotate-0 scale-105 shadow-2xl'
-                : 'top-[7%] -rotate-[2.5deg] group-hover:-translate-y-2.5 group-hover:-rotate-1'
+                : 'top-[3%] -rotate-[2.5deg] group-hover:-translate-y-2.5 group-hover:-rotate-1'
             }`}
             style={{ transformOrigin: 'bottom center' }}
           >
             {/* Kẹp tim vàng tinh xảo ở góc trên bên trái tấm ảnh */}
             <div className="absolute -top-2.5 left-3 z-30 pointer-events-none drop-shadow-md">
-              <svg width="22" height="26" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="20" height="24" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4C8 0 2 3 2 9C2 15 12 23 12 23C12 23 22 15 22 9C22 3 16 0 12 4Z" stroke="#D8B45F" strokeWidth="2.5" fill="#E4CC86" fillOpacity="0.4" />
                 <path d="M12 7C9.5 4 5 6 5 10C5 14 12 20 12 20C12 20 19 14 19 10C19 6 14.5 4 12 7Z" stroke="#D8B45F" strokeWidth="1.5" />
               </svg>
             </div>
 
             {/* 1. KHUNG ẢNH LỄ ĐƯỜNG KIẾN TRÚC */}
-            <div className="relative w-full aspect-[4/4.2] rounded-xl overflow-hidden bg-stone-100 border border-[#D8B45F]/40 shadow-inner">
+            <div className="relative w-full aspect-[4/3.1] rounded-xl overflow-hidden bg-stone-100 border border-[#D8B45F]/40 shadow-inner">
               <Image
                 src="/images/wedding_opt/H2H08970.jpg"
                 alt="Đỗ Thành Nhớ & Phạm Thị Ngân"
                 fill
-                sizes="240px"
+                sizes="230px"
                 className="object-cover object-[center_60%] filter brightness-[1.02] contrast-[1.02]"
                 priority
               />
@@ -196,14 +196,14 @@ export default function EnvelopeModal({ onOpen }: EnvelopeModalProps) {
             </div>
 
             {/* 2. THÔNG TIN NGÀY CƯỚI TRÊN THIỆP */}
-            <div className="pt-1.5 pb-0.5 text-center font-serif">
-              <p className="text-[9px] uppercase tracking-[0.25em] text-[#8F1724] font-bold">
+            <div className="pt-1 pb-0.5 text-center font-serif">
+              <p className="text-[8.5px] uppercase tracking-[0.25em] text-[#8F1724] font-bold">
                 Ngày Chung Đôi
               </p>
-              <p className="text-base sm:text-lg font-heading text-[#641D24] font-semibold tracking-widest leading-tight mt-0.5">
+              <p className="text-sm sm:text-base font-heading text-[#641D24] font-semibold tracking-widest leading-tight mt-0.5">
                 29 &bull; 09 &bull; 2026
               </p>
-              <p className="text-[9px] text-[#736266] italic font-medium">
+              <p className="text-[8.5px] text-[#736266] italic font-medium">
                 Lễ Thành Hôn
               </p>
             </div>
